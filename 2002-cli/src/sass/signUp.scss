@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.top{
+    width:100%;
+    height: 82px;
+    border-top: 1px solid #999;
+    h1{
+        width: 100%;
+        padding-left: 180px;
+        font-size: 23px;
+        img{
+            width: 167px;
+            height: 51px;
+            margin-top: 10px;
+        }
+        b{
+            font-weight: normal;
+            vertical-align: middle;
+        }
+    }
+}
+.main{
+    width: 100%;
+    height: 476px;
+    background-image: url(../img/sign.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    .box{
+        width: 346px;
+        height: 400px;
+        background-color: #ffffff;
+        position: absolute;
+        right: 180px;
+        top: 10px;
+        h2{
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+        p{
+            width: 260px;
+            height: 38px;
+            border: 1px solid #cccccc;
+            margin: auto;
+            margin-top: 30px;
+            span{
+                display: block;
+                width: 38px;
+                height: 38px;
+                background-color: #f4f4f4;
+                float: left;
+                text-align: center;
+                line-height: 38px;
+                i{
+                    font-size: 16px;
+                }
+            }
+            input{
+                height: 36px;
+                width: 200px;
+                float: left;
+                border: none;
+                padding-left: 10px;
+                outline: none;
+                font-size: 14px;
+            }
+        }
+        h3{
+            padding: 20px;
+            float: right;
+            font-weight: normal;
+            font-size: 12px;
+            a{
+                color: #666666;
+            }
+        }
+        .denglu{
+            clear: both;
+            display: block;
+            width: 305px;
+            height: 34px;
+            margin: auto;
+            background-color: #e4393c;
+            text-align: center;
+            line-height: 34px;
+            font-size: 20px;
+            color: #ffffff;
+            border: none;
+        }
+        ul{
+            margin-top: 40px;
+            width: 326px;
+            height: 50px;
+            border-top: 1px solid #ccc;
+            line-height: 50px;
+            padding-left: 20px;
+            li{
+                float: left;
+                margin-right: 20px;
+                a{
+                    display: inline-block;
+                    position: relative;
+                    padding-left: 24px;
+                    color: red;
+                }
+                &:nth-child(1){
+                    a{
+                        color: #666;
+                        b{
+                            width: 19px;
+                            height: 18px;
+                            display: block;
+                            background: url(../img/QQ-weixin.png) no-repeat;
+                            margin: 0 auto;
+                            position: absolute;
+                            float: left;
+                            left: 0;
+                            top: 16px;
+                        }
+                    }
+                }
+
+                &:nth-child(2){
+                    a{
+                        color: #666;
+                        b{
+                            width: 19px;
+                            height: 18px;
+                            display: block;
+                            background: url(../img/QQ-weixin.png) no-repeat;
+                            margin: 0 auto;
+                            position: absolute;
+                            background-position: -19px 0;
+                            float: left;
+                            left: 0;
+                            top: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.footer{
+    margin-top: 10px;
+    width: 100%;
+    p{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 14px;
+        color: #666666;
+    }
+}

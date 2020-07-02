@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.top{
+    width: 100%;
+    height: 32px;
+    background-color: #e3e4e5;
+    border-top: 1px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+}
+.top span{
+    font-size: 14px;
+    color: #999999;
+    margin-left: 90px;
+    line-height: 32px;
+}
+.top span i{
+    color: red;
+}
+.top .nav{
+    float: right;
+    line-height: 32px;
+    font-size: 14px;
+    color: #999999;
+    margin-right: 60px;
+}
+.top .nav li{
+    float: left;
+    padding: 0 14px;
+    // position: relative;
+}
+.top .nav li i{
+    padding: 0 14px;
+    border-right: 1px solid #cccccc;
+}
+.top .nav li ul{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #999999;
+    border-top: none;
+    z-index: 1;
+    font-size: 14px;
+    padding: 10px 18px 0 18px;
+}
+.top .nav li .ul1{
+    width: 280px;
+    height: 150px;
+}
+
+.top .nav li:hover ul{
+    display: block;
+}
+.top .nav li ul li:hover{
+    color: red;
+}
+.top .nav li .ul2{
+width: 155px;
+height: 82px;
+}
+.top .nav li .ul1 li{
+    margin-right: 25px;
+}
+.top .nav li ul li{
+    padding-left: 18px;
+    line-height: 25px;
+    text-align: left;
+}
+
+.top .nav li a{
+    color: #999999;
+}
+.top .nav li:nth-child(1),.top .nav li:nth-child(8){
+    border-right: none;
+}
+.top .nav li b:hover{
+    color: red;
+}
+ .top .nav li:nth-child(2) a{
+       color: red;
+} 

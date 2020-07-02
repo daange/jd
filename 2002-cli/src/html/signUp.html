@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css" />
+    <link rel="stylesheet" href="../css/signUp.css" />
+  </head>
+  <body>
+    <div class="top">
+      <h1>
+        <img src="../img/jdlogo.png" alt="" />
+        <b>欢迎注册</b>
+      </h1>
+    </div>
+    <div class="main">
+      <div class="box">
+        <h2>账号注册</h2>
+        <form action="./signIn.html">
+          <p>
+            <span><i class="iconfont">&#xe660;</i></span>
+            <input type="text" placeholder="邮箱/用户名/登录手机" /> <b></b>
+          </p>
+          <p>
+            <span><i class="iconfont">&#xe653;</i></span>
+            <input type="text" placeholder="密码" /> <b></b>
+          </p>
+          <h3>
+            <a href="#"> 忘记密码</a>
+          </h3>
+          <button class="denglu" type="submit">
+            注册
+          </button>
+        </form>
+        <ul>
+          <li>
+            <a href="#">
+              <b></b>
+              <span>QQ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <b></b>
+              <span>微信</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">立即注册</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        关于我们 | 联系我们 | 人才招聘 | 商家入驻 | 广告服务 | 手机京东 |
+        友情链接 | 销售联盟 | 京东社区 | 京东公益 | English Site
+      </p>
+      <p>Copyright @ 2004-2002 京东 JD.com 版权所有</p>
+    </div>
+  </body>
+  <!-- <script src="../script/jquery-1.8.3.js"></script> -->
+  <script>
+
+    var form=document.querySelector("form");
+         // 获取所有的input列表转换为数组
+         var list=Array.from(document.getElementsByTagName("input"));
+         
+        var arr=[];
+        var goodsArr=[];
+        for(var i=0;i<list.length;i++){
+            // 初始化让没有个元素都标示没有验证通过，都是false
+            arr.push(false);
+        }
+        form.addEventListener("submit",formHandler);
+        form.addEventListener("input",formHandler);
+
+
+        function formHandler(e){
+            if(e.type==="input"){
+                // 获取当前input触发文本框是数组中第几个
+                var index=list.indexOf(e.target);
+                // console.log(list[0].value)
+                // 执行验证，带入当前是第几个文本框，文本内容
+                var bool=getVerify(index,e.target.value);
+                // 本次验证文本内容是否正确
+                if(bool){
+                    // 如果正确就让本次验证内容后面的元素span添加内容改变颜色
+                    e.target.nextElementSibling.textContent="正确的";
+                    e.target.nextElementSibling.style.color="green";
+                }else{
+                    // 如果不正确提示错误，红色
+                    e.target.nextElementSibling.textContent="错误的";
+                    e.target.nextElementSibling.style.color="red";
+                }
+                arr[index]=bool;
+            }else if(e.type==="submit"  && arr.indexOf(false)===-1){
+                // 这个条件  提交事件时
+                // 数组中是否有false
+                goodsArr.push({"user":list[0].value,"pass":list[1].value});
+                var strArr = JSON.stringify(goodsArr);
+                localStorage.setItem('data',strArr);
+            }else{
+                e.preventDefault();
+            }
+          
+        }
+
+        function getVerify(index,value){
+            switch(index){
+                case 0:
+                return /^\w{8,16}$/.test(value);
+                case 1:
+                return /^(?=\D+\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,16}$/.test(value);
+                case 2:
+                return /^1\d{10}$/.test(value);
+            }
+        }
+  </script>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../css/signIn.css">
+</head>
+<body>
+    <div class="top">
+        <h1>
+            <img src="../img/jdlogo.png" alt="">
+            <b>欢迎登录</b>
+        </h1>
+    </div>
+    <div class="main">
+       <div class="box">
+        <h2>账号登录</h2>
+        <form action="./index.html">
+        <p>
+            <span><i class="iconfont">&#xe660;</i></span>
+            <input type="text" placeholder="邮箱/用户名/登录手机"><b></b>
+        </p>
+        <p>
+            <span><i class="iconfont">&#xe653;</i></span>
+            <input type="text" placeholder="密码"><b></b>
+        </p>
+        <h3>
+            <a href="#"> 忘记密码</a>
+        </h3>
+        <button class="denglu">
+            登   录
+        </button>
+    </form>
+        <ul>
+            <li>
+                <a href="#">
+                    <b></b>
+                    <span>QQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <b></b>
+                    <span>微信</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:5500/2002-cli/dist/html/signUp.html">立即注册</a>
+            </li>
+        </ul>
+       </div>
+    </div>
+    <div class="footer">
+        <p>关于我们 | 联系我们 | 人才招聘 | 商家入驻 | 广告服务 | 手机京东 | 友情链接 | 销售联盟 | 京东社区 | 京东公益 | English Site</p>
+        <p>Copyright @ 2004-2002 京东 JD.com 版权所有</p>
+    </div>
+</body>
+<script>
+        var form=document.querySelector("form");
+        var list=Array.from(document.getElementsByTagName("input"));
+        form.addEventListener("submit",formHandler);
+        form.addEventListener("input",formHandler);
+
+        var arr=[];
+        for(var i=0;i<list.length;i++){
+            // 初始化让没有个元素都标示没有验证通过，都是false
+            arr.push(false);
+        }
+    if(localStorage.getItem("data")){
+       data=JSON.parse(localStorage.getItem("data"));
+    }else{
+        console.log("请先注册");
+    }
+    function formHandler(e){
+        if(e.type==="input"){
+            var index=list.indexOf(e.target);
+            var bool=getVerify(index,e.target.value);
+            console.log(bool);
+            arr[index]=bool;
+            console.log(arr);
+            if(bool){
+                e.target.nextElementSibling.textContent="正确的";
+                e.target.nextElementSibling.style.color="green";
+            }else{
+                e.target.nextElementSibling.textContent="错误的";
+                e.target.nextElementSibling.style.color="red";
+            }
+        }else if(e.type==="submit"  && arr.indexOf(false)===-1){
+                return true;
+            }else{
+            e.preventDefault();
+        }
+    }
+
+    function getVerify(index,value){
+        switch(index){
+            case 0:
+                if(value===data[0].user){
+                    return true;
+                }else{
+                    return false;
+                }
+            case 1:
+            if(value===data[0].pass){
+                    return true;
+                }else{
+                    return false;
+                }
+        }
+    }
+</script>
+</html>
